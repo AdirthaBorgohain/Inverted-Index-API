@@ -103,6 +103,10 @@ class InvertedIndex:
             return []
 #         return { term: self.index[term] for term in query.split(' ') if term in self.index }
 
+class TapSearch:
+    def __init__(self):
+        self.db = Database()
+
 def main():
     with open("sample.txt", "r") as para:
         input_ = para.read().split("\n\n")   #\n\n denotes there is a blank line in between paragraphs.
