@@ -33,7 +33,7 @@ def search_term():
     result = TapSearch.search_term(session["inverted_index"], session["document_index"], term)
     print('**********************')
     print(result)
-    return render_template("results.html", documents = result)
+    return render_template("results.html", documents = result, query = term)
 
 if __name__ == "__main__":
     app.run()

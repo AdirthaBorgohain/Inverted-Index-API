@@ -1,14 +1,15 @@
-{% extends 'template.html' %} 
+{% extends 'template.html' %} {% block content %}
 
-{% block content %}
-
+<h4> Documents successfully indexed </h4>
+<br><br>
 <p>Search Word in Document:</p>
-  <form action="{{ url_for('search_term') }}" method="post">
+<form action="{{ url_for('search_term') }}" method="post">
     <div class="form-group">
-  <label for="usr">Enter Term:</label>
-  <input type="text" class="form-control" name="term">
-  <button class="btn" type="submit">Submit</button>
-</div>
-  </form>
-  
-  {% endblock %}
+        <label for="usr">Enter Term:</label>
+        <input type="text" class="form-control" name="term">
+        <br>
+        <button class="btn" type="submit">Submit</button>
+    </div>
+</form>
+
+{% endblock %}
