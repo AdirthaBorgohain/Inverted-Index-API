@@ -1,0 +1,10 @@
+{% extends 'template.html' %} {% block content %}
+<br>
+<br>
+<ul>
+    {% for document in documents %}
+    <li> {{document}}</li>
+    <br></br>
+    {% endfor %}
+</ul>
+{% endblock %}

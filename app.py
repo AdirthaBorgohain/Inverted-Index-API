@@ -13,7 +13,8 @@ def home():
 @app.route('/handle_document', methods=['POST'])
 def handle_document():
     doc = request.form['document']
-#    print(doc)
+    print(doc)
+#    print(type(doc))
     TS = TapSearch(doc)
     TS.create_inverse_index()
     session["inverted_index"] = TS.retrieve_dict()
@@ -31,8 +32,8 @@ def search_term():
 #    print(term)
     result = TapSearch.search_term(session["inverted_index"], session["document_index"], term)
     print('**********************')
-#    print(result)
-    return render_template("results.html", paragraphs = result)
+    print(result)
+    return render_template("results.html", documents = result)
 
 if __name__ == "__main__":
     app.run()

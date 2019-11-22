@@ -1,0 +1,15 @@
+{% extends 'template.html' %} 
+
+{% block content %}
+
+<p>Enter text to be stored in the API:</p>
+  <form action="{{ url_for('handle_document') }}" method="post">
+    <div class="form-group">
+      <label for="comment">TextArea:</label>
+      <textarea class="form-control" name="document" rows=10 id="comment"></textarea>
+      <br>
+      <button class="btn" type="submit">Submit</button>
+    </div>
+  </form>
+  
+  {% endblock %}

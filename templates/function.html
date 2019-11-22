@@ -1,0 +1,14 @@
+{% extends 'template.html' %} 
+
+{% block content %}
+
+<p>Search Word in Document:</p>
+  <form action="{{ url_for('search_term') }}" method="post">
+    <div class="form-group">
+  <label for="usr">Enter Term:</label>
+  <input type="text" class="form-control" name="term">
+  <button class="btn" type="submit">Submit</button>
+</div>
+  </form>
+  
+  {% endblock %}

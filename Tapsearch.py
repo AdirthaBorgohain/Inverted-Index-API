@@ -2,7 +2,7 @@ import re
 
 class TapSearch:
     def __init__(self, text):
-        self.text = text
+        self.text = text.replace('\r','')
         self.docs = self.extract_docs()
         self.inverted_index = dict()
         self.doc_indexes = dict()
@@ -32,6 +32,7 @@ class TapSearch:
                 self.inverted_index[term] = temp_dict
                 
     def extract_docs(self):
+#        print(self.text)
         docs = self.text.split("\n\n")
         return docs
         
@@ -58,10 +59,10 @@ class TapSearch:
             term_dict = inverted_index[term]
             result_idx = sorted(term_dict.keys(), key=lambda x: term_dict[x]['frequency'], reverse=True)
             results = []
-            print(document_index)
+#            print(document_index)
 #            print(result_idx)
-#            for idx in result_idx:
-#                results.append(document_index[idx])
+            for idx in result_idx:
+                results.append(document_index[idx])
 #                print(document_index[idx])
         else:
             results = []
