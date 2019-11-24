@@ -3,7 +3,6 @@ from Invsearch import InvSearch
 from flask import Flask, render_template, request, session
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
 app.config['SECRET_KEY'] = os.urandom(69)
 
 @app.route('/')
