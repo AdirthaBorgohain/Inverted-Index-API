@@ -11,5 +11,6 @@
         <button class="btn" type="submit">Submit</button>
     </div>
 </form>
-
-{% endblock %}
+<form action="{{ url_for('clear_db') }}" method="get">
+    <button class="btn" type="submit">Clear all indexes and data</button>
+</form> {% endblock %}

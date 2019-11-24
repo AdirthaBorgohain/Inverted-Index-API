@@ -1,6 +1,6 @@
 import re
 
-class TapSearch:
+class InvSearch:
     def __init__(self, text):
         self.text = text.replace('\r','')
         self.docs = self.extract_docs()
@@ -32,7 +32,6 @@ class TapSearch:
                 self.inverted_index[term] = temp_dict
                 
     def extract_docs(self):
-#        print(self.text)
         docs = self.text.split("\n\n")
         return docs
         
@@ -49,34 +48,28 @@ class TapSearch:
 
     @staticmethod
     def search_term(inverted_index, document_index, term):
-#        print('************************')
-#        print(inverted_index)
-#        print('************************')
-#        print(document_index)
         term = term.lower()
         if term in inverted_index:
             print(inverted_index[term])
             term_dict = inverted_index[term]
             result_idx = sorted(term_dict.keys(), key=lambda x: term_dict[x]['frequency'], reverse=True)
             results = []
-#            print(document_index)
-#            print(result_idx)
             for idx in result_idx:
                 results.append(document_index[idx])
-#                print(document_index[idx])
         else:
             results = []
         return results
         
+    @staticmethod
+    def clear_all(inverted_index, document_index):
+        return inverted_index.clear(), document_index.clear()
+        
 def main():
-    test_obj = TapSearch('I am a dog and a very faithful VERY one.\n\nShe is very harmless.\n\nI love this college')
-#    ret = test_obj.extract_docs()
+    test_obj = InvSearch('I am a dog and a very faithful VERY one.\n\nShe is very harmless.\n\nI love this college')
     test_obj.create_inverse_index()
-#    x = test_obj.retrieve_dict
     x = test_obj.retrieve_dict()
     y= test_obj.retrieve_doc_dict()
     test_obj.search_term(x , y, 'very')
-#    print(x)
     
 if __name__ == "__main__":
     main()
